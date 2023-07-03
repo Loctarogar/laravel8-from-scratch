@@ -10,33 +10,11 @@
     <title>my blog</title>
 </head>
 <body>
-  <article>
-      <h1><a href="/posts/my-first-post">My First Blog Post</a></h1>
-      <div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab adipisci blanditiis commodi dignissimos dolorem
-          dolores earum eos facere fugiat mollitia neque nobis optio pariatur recusandae reiciendis, reprehenderit
-          veniam voluptas? Repellat?Amet et, excepturi, in ipsa laboriosam minus natus officia pariatur qui, reiciendis voluptas voluptatem
-          voluptatibus? A atque ea earum, error eveniet expedita minima necessitatibus non, quisquam sequi sit ullam
-          vel!
-      </div>
-  </article>
-  <article>
-      <h1><a href="/posts/my-second-post">My Second Blog Post</a></h1>
-      <div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab adipisci blanditiis commodi dignissimos dolorem
-          dolores earum eos facere fugiat mollitia neque nobis optio pariatur recusandae reiciendis, reprehenderit
-          veniam voluptas? Repellat?Amet et, excepturi, in ipsa laboriosam minus natus officia pariatur qui, reiciendis voluptas voluptatem
-          voluptatibus? A atque ea earum, error eveniet expedita minima necessitatibus non, quisquam sequi sit ullam
-          vel!
-      </div>
-  </article>
-  <article>
-      <h1><a href="/posts/my-third-post">My Third Blog Post</a></h1>
-      <div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab adipisci blanditiis commodi dignissimos dolorem
-          dolores earum eos facere fugiat mollitia neque nobis optio pariatur recusandae reiciendis, reprehenderit
-          veniam voluptas? Repellat?Amet et, excepturi, in ipsa laboriosam minus natus officia pariatur qui, reiciendis voluptas voluptatem
-          voluptatibus? A atque ea earum, error eveniet expedita minima necessitatibus non, quisquam sequi sit ullam
-          vel!
-      </div>
-  </article>
+<?php foreach ($posts as $post) : ?>
+    <article>
+        <?= $post; ?>
+    </article>
+<?php endforeach; ?>
 </body>
 </html>
 
