@@ -8,7 +8,7 @@
             in <a href="">{{ $post->category->slug }}</a>
         </p>
         <div>{!! $post->body !!}</div>
-        <p>
+        <p>Category:
             <a href="/categories/{{ $post->category->slug }}">{{ $post->category['name'] }}</a>
         </p>
     </article>
