@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\DB;
 
 class Post extends Model
 {
@@ -21,8 +22,16 @@ class Post extends Model
         return $this->belongsTo(Category::class);
     }
 
-    public function user()
+    public function author()
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(User::class, 'user_id');
+    }
+
+    public function getByUserId(User $user)
+    {
+        return DB::table('posts')
+            ->select('user_id', 'title', 'slug', 'excerpt')
+            ->where('user_id', '=', $user->id)
+            ->get();
     }
 }

@@ -1,9 +1,10 @@
 @extends('components.layout')
 
 @section('banner')
-    <h1>My Blog</h1>
+    <h1>Posts by author</h1>
 @endsection
 @section('content')
+    <div>Posts by author</div>
     @foreach ($posts as $post)
         <article>
             <h1>Slug :
@@ -12,11 +13,12 @@
                 </a>
             </h1>
             <h1>User :
-                    By <a href="/authors/{{ $post->author->username }}">{{ $post->author->name }}</a>
-                    in <a href="/categories/{{ $post->category->slug }}">{{ $post->category->slug }}</a>
+{{--                <a href="/posts/{{ $post->user['id'] }}">--}}
+{{--                    {{ $post->user['name'] }}--}}
+{{--                </a>--}}
             </h1>
             <p>Category :
-                <a href="/categories/{{ $post->category->slug }}">{{ $post->category['name'] }}</a>
+{{--                <a href="/categories/{{ $post->category->slug }}">{{ $post->category['name'] }}</a>--}}
             </p>
             <div>{{ $post->excerpt }} </div>
         </article>
