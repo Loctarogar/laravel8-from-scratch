@@ -32,7 +32,7 @@ Route::get('/posts/{post}', function (Post $post) {
 
 Route::get('/categories/{category:slug}', function (Category $category) {
     return view('posts', [
-        'posts' => $category->posts
+        'posts' => $category->posts->load(['category', 'author'])
     ]);
 });
 
@@ -40,6 +40,6 @@ Route::get('authors/{author:username}', function (User $author) {
     $author->load('posts.author');
 
     return view('posts', [
-        'posts' => $author->posts
+        'posts' => $author->posts->load(['category', 'author'])
     ]);
 });
