@@ -3,6 +3,10 @@
 @section('content')
     <article>
         <h1>{{ $post->title }}</h1>
+        <p>
+            By <a href="">{{ $post->user->name }}</a>
+            in <a href="">{{ $post->category->slug }}</a>
+        </p>
         <div>{!! $post->body !!}</div>
         <p>
             <a href="/categories/{{ $post->category->slug }}">{{ $post->category['name'] }}</a>
