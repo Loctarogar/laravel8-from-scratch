@@ -40,6 +40,7 @@ Route::get('authors/{author:username}', function (User $author) {
     $author->load('posts.author');
 
     return view('posts', [
-        'posts' => $author->posts->load(['category', 'author'])
+        'posts' => $author->posts->load(['category', 'author']),
+        'go_back_button' => true
     ]);
 });
