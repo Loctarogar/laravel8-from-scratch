@@ -22,19 +22,12 @@ use Spatie\YamlFrontMatter\YamlFrontMatter;
 Route::get('/', [PostsController::class, 'index'])->name('home');
 Route::get('/posts/{post}', [PostsController::class, 'show'])->name('show');
 
-//Route::get('/categories/{category:slug}', function (Category $category) {
-//    return view('posts', [
-//        'posts' => $category->posts->load(['category', 'author']),
-//        'currentCategory' => $category,
-//        'categories' => Category::all(),
-//    ]);
-//});
-
 Route::get('authors/{author:username}', function (User $author) {
     $author->load('posts.author');
 
     return view('posts', [
-        'posts' => $author->posts->load(['category', 'author']),
+//        'posts' => $author->posts->load(['category', 'author']),
+        'posts' => $author->posts,
         'go_back_button' => true
     ]);
 });
