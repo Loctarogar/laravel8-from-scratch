@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\PostsController;
 use App\Models\Category;
 use App\Models\Post;
 use App\Models\User;
@@ -18,18 +19,8 @@ use Spatie\YamlFrontMatter\YamlFrontMatter;
 |
 */
 
-Route::get('/', function () {
-    return view('posts', [
-        'posts' => Post::latest()->with('category', 'author')->get(),
-        'categories' => Category::all(),
-    ]);
-});
-
-Route::get('/posts/{post}', function (Post $post) {
-    return view('post', [
-        'post' => $post
-    ]);
-});
+Route::get('/', [PostsController::class, 'index'])->name('home');
+Route::get('/posts/{post}', [PostsController::class, 'show'])->name('show');
 
 Route::get('/categories/{category:slug}', function (Category $category) {
     return view('posts', [

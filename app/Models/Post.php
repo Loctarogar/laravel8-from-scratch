@@ -12,6 +12,15 @@ class Post extends Model
 
     protected $fillable = ['title', 'excerpt', 'body'];
 
+    public function scopeFilter($query, array $filters)
+    {
+        if ($filters['search'] ?? false) {
+            $query
+                ->where('title', 'like', '%' . request('search') . '%')
+                ->orWhere('body', 'like', '%' . request('search') . '%');
+        }
+    }
+
     public function getRouteKeyName()
     {
         return 'slug';
