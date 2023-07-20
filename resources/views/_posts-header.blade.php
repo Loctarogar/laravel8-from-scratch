@@ -22,7 +22,7 @@
                 </x-slot>
                     @foreach($categories as $category)
                     <x-dropdown-item
-                        href="/categories/{{ $category->slug }}"
+                        href="/?category={{ $category->slug }}"
                         :active="isset($currentCategory) && $currentCategory->id == $category->id"
                     >
                         {{ ucwords($category->name) }}
