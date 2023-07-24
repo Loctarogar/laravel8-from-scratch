@@ -17,8 +17,14 @@
                     class="border border-gray-400 p-2 w-full"
                     name="name"
                     id="name"
+                    value="{{ old('name') }}"
                     required
                 >
+
+                @error('name')
+                    <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
+                @enderror
+
             </div>
 
             <div class="mb-6">
@@ -33,8 +39,14 @@
                     class="border border-gray-400 p-2 w-full"
                     name="username"
                     id="username"
+                    value="{{ old('username') }}"
                     required
                 >
+
+                @error('username')
+                <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
+                @enderror
+
             </div>
 
             <div class="mb-6">
@@ -49,8 +61,14 @@
                     class="border border-gray-400 p-2 w-full"
                     name="email"
                     id="email"
+                    value="{{ old('email') }}"
                     required
                 >
+
+                @error('email')
+                <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
+                @enderror
+
             </div>
 
             <div class="mb-6">
@@ -67,6 +85,11 @@
                     id="password"
                     required
                 >
+
+                @error('password')
+                <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
+                @enderror
+
             </div>
 
             <div class="mb-6">
@@ -77,6 +100,9 @@
                     Submit
                 </button>
             </div>
+{{--            @foreach($errors->all() as $error)--}}
+{{--                <p>{{ $error }}</p><br>--}}
+{{--            @endforeach--}}
         </form>
     </main>
 @endsection
