@@ -52,26 +52,28 @@
             </div>
 
             <section class="col-span-8 col-start-5 mt-10 space-y-6">
-                <form method="POST" action="#" class="border border-grey-200 p-6 rounded-xl">
-                    @csrf
-                    <header class="flex item-center ">
-                        <img src="https://i.pravatar.cc/100?u={{ auth()->id() }}" width="40" height="40" class="rounded-full" alt="">
-                        <h2 class="ml-3">Want to participate?</h2>
-                    </header>
+                <x-panel>
+                    <form method="POST" action="#">
+                        @csrf
+                        <header class="flex item-center ">
+                            <img src="https://i.pravatar.cc/100?u={{ auth()->id() }}" width="40" height="40" class="rounded-full" alt="">
+                            <h2 class="ml-3">Want to participate?</h2>
+                        </header>
 
-                    <div class="mt-5">
-                        <textarea name="body" class="w-full focus:outline-none focus:ring" cols="30" rows="4" placeholder="wright something"></textarea>
-                    </div>
-                    <div class="flex justify-end">
-                        <button
-                            type="submit"
-                            class="mt-5 bg-blue-500 text-white uppercase font-semibold text-xs py-2 px-10 rounded-2xl hover:bg-blue-600"
-                        >
-                            Post
-                        </button>
-                    </div>
+                        <div class="mt-5">
+                            <textarea name="body" class="w-full focus:outline-none focus:ring" cols="30" rows="4" placeholder="wright something"></textarea>
+                        </div>
+                        <div class="flex justify-end">
+                            <button
+                                type="submit"
+                                class="mt-5 bg-blue-500 text-white uppercase font-semibold text-xs py-2 px-10 rounded-2xl hover:bg-blue-600"
+                            >
+                                Post
+                            </button>
+                        </div>
 
-                </form>
+                    </form>
+                </x-panel>
                 @foreach($post->comments as $comment)
                     <x-post-comment :comment="$comment"></x-post-comment>
                 @endforeach
